@@ -1,13 +1,14 @@
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('likes').truncate()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
+      return knex('likes').insert([
+        {user_id: 1, post_id: 2},
+        {user_id: 2, post_id: 3},
+        {user_id: 3, post_id: 1},
+        {user_id: 3, post_id: 2}
       ]);
     });
 };
