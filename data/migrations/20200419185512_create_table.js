@@ -3,7 +3,9 @@ exports.up = function(knex) {
   return knex.schema
     .createTable("users", table => {
         table.increments();
-        table.text("username", 128);
+        table.text("username", 128)
+            .unique()
+        table.text("password", 128);
     })
     .createTable("posts", table => {
         table.increments();
