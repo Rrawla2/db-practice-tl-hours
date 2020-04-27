@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
                 if (err) {
                     res.status(401).json({ message: "No access granted"})
                 } else {
-                    req.decodedToken = decodedToken
+                    req.decodedJwt = decodedToken
                     next()
                 }
             })

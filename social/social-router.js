@@ -24,4 +24,15 @@ router.get("/posts", (req, res) => {
         })
 })
 
+router.delete("/users", (req, res) => {
+    console.log(req.decodedJwt)
+    Social.removeUser(req.decodedJwt.user_id)
+        .then(id => {
+            res.status(201).json({ id })
+        })
+        .catch(err => {
+            res.status(500).json({ message: "Error", err })
+        })
+})
+
 module.exports = router;

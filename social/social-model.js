@@ -5,7 +5,8 @@ module.exports = {
     insertUser,
     getPosts,
     insertPost,
-    getLikes
+    getLikes,
+    removeUser
 }
 
 function getUsers() {
@@ -33,3 +34,9 @@ function getLikes(post_id) {
         .where({ post_id })
 }
 
+function removeUser(id) {
+    return db("users")
+        .where({ id })
+        .first()
+        .del()
+}
